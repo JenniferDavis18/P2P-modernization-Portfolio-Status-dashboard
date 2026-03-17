@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P2P Modernization Portfolio Status</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .project-card {
+            margin-bottom: 20px;
+        }
+
+        .sub-project {
+            margin-left: 20px;
+            border-left: 2px solid #007bff;
+            padding-left: 10px;
+        }
+
+        .status-badge {
+            font-size: 0.8em;
+        }
+
+        .health-green {
+            color: green;
+        }
+
+        .health-yellow {
+            color: orange;
+        }
+
+        .health-red {
+            color: red;
+        }
+
+        .health-yellow {
+            color: orange;
+        }
+
+        .health-red {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-4">
+        <h1 class="mb-4">{{ portfolio.name }}</h1>
+        <p class="lead">{{ portfolio.description }}</p>
+
+        <!-- Current Status and Project Health Section -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title mb-0">Current Status & Project Health</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>Project Status Summary</h5>
+                                <div class="d-flex flex-wrap gap-3">
+                                    {% set status_counts = {} %}
+                                    {% for project in portfolio.projects %}
+                                    {% if project.status not in status_counts %}
+                                    {% set _ = status_counts.update({project.status: 0}) %}
+                                    {% endif %}
+                                    {% set _ = status_counts.update({project.status: status_counts[project.status] + 1})
+                                    %}
+                                    {% endfor %}
+
+                                    {% for status, count in status_counts.items() %}
+                                    <div class="text-center">
+                                        <div class="badge bg-secondary fs-6 p-2">{{ count }}</div>
+                                        <div class="small text-muted mt-1">{{ status|title }}</div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>Project Health Summary</h5>
+                                <div class="d-flex flex-wrap gap-3">
+                                    {% set health_counts = {} %}
+                                    {% for project in portfolio.projects %}
+                                    {% if project.health not in health_counts %}
+                                    {% set _ = health_counts.update({project.health: 0}) %}
+                                    {% endif %}
+                                    {% set _ = health_counts.update({project.health: health_counts[project.health] + 1})
+                                    %}
+                                    {% endfor %}
+
+                                    {% for health, count in health_counts.items() %}
+                                    <div class="text-center">
+                                        <div class="badge health-{{ health }} fs-6 p-2">● {{ count }}</div>
+                                        <div class="small text-muted mt-1">{{ health|title }}</div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <h5>Project Details</h5>
+                        <div class="table-responsive">
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>Project Name</th>
+                                        <th>Status</th>
+                                        <th>Health</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                        <th>Deployment</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for project in portfolio.projects %}
+                                    <tr>
+                                        <td><strong>{{ project.name }}</strong></td>
+                                        <td><span class="badge bg-secondary">{{ project.status }}</span></td>
+                                        <td><span class="badge health-{{ project.health }}">●</span> {{
+                                            project.health|title }}</td>
+                                        <td>{{ project.start_date or 'Not set' }}</td>
+                                        <td>{{ project.end_date or 'Not set' }}</td>
+                                        <td>{{ project.deployment_date or 'Not set' }}</td>
+                                    </tr>
+                                    {% if project.sub_projects %}
+                                    {% for sub_project in project.sub_projects %}
+                                    <tr class="table-light">
+                                        <td class="ps-4"><em>└─ {{ sub_project.name }}</em></td>
+                                        <td><span class="badge bg-secondary">{{ sub_project.status }}</span></td>
+                                        <td><span class="badge health-{{ sub_project.health }}">●</span> {{
+                                            sub_project.health|title }}</td>
+                                        <td>{{ sub_project.start_date or 'Not set' }}</td>
+                                        <td>{{ sub_project.end_date or 'Not set' }}</td>
+                                        <td>{{ sub_project.deployment_date or 'Not set' }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                    {% endif %}
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mb-4">Project Details</h2>
+        {% for project in portfolio.projects %}
+        <div class="col-12 project-card">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <div>
+                        <h5 class="card-title">{{ project.name }}</h5>
+                        <span class="badge bg-secondary status-badge">{{ project.status }}</span>
+                        <span class="badge health-{{ project.health }} status-badge">●</span>
+                    </div>
+                    <a href="{{ url_for('edit_project', project_id=project.id) }}" class="btn btn-primary btn-sm">Edit
+                        Project</a>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{ project.description or 'No description available' }}</p>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <strong>Start Date:</strong><br>
+                            {{ project.start_date or 'Not set' }}
+                        </div>
+                        <div class="col-md-3">
+                            <strong>End Date:</strong><br>
+                            {{ project.end_date or 'Not set' }}
+                        </div>
+                        <div class="col-md-3">
+                            <strong>Deployment Date:</strong><br>
+                            {{ project.deployment_date or 'Not set' }}
+                        </div>
+                    </div>
+
+                    {% if project.sub_projects %}
+                    <h6 class="mt-3">Sub Projects:</h6>
+                    {% for sub_project in project.sub_projects %}
+                    <div class="sub-project">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="flex-grow-1">
+                                        <h6 class="card-title">{{ sub_project.name }}</h6>
+                                        <p class="card-text">{{ sub_project.description or 'No description available' }}
+                                        </p>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <strong>Start Date:</strong><br>
+                                                {{ sub_project.start_date or 'Not set' }}
+                                            </div>
+                                            <div class="col-md-3">
+                                                <strong>End Date:</strong><br>
+                                                {{ sub_project.end_date or 'Not set' }}
+                                            </div>
+                                            <div class="col-md-3">
+                                                <strong>Deployment Date:</strong><br>
+                                                {{ sub_project.deployment_date or 'Not set' }}
+                                            </div>
+                                        </div>
+                                        <span class="badge bg-secondary status-badge">{{ sub_project.status }}</span>
+                                        <span class="badge health-{{ sub_project.health }} status-badge">●</span>
+                                    </div>
+                                    <a href="{{ url_for('edit_subproject', project_id=project.id, sub_id=sub_project.id) }}"
+                                        class="btn btn-outline-primary btn-sm ms-2">Edit</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,159 @@
+{
+    "projects": [
+        {
+            "id": 1,
+            "name": "IBMi to P2P Modernization",
+            "status": "active",
+            "health": "green",
+            "start_date": "2026-02-01",
+            "end_date": "2028-10-01",
+            "deployment_date": "",
+            "description": "",
+            "sub_projects": [
+                {
+                    "id": 1,
+                    "name": "HPE- Hog Procurement Evaluation",
+                    "status": "active",
+                    "health": "green",
+                    "start_date": "2026-02-01",
+                    "end_date": "2026-11-30",
+                    "deployment_date": "2026-10-31",
+                    "description": "Vertical: Plant Ops",
+                    "sub_projects": []
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "1272: Enterprise Data Platform enablement and Governance",
+            "status": "active",
+            "health": "green",
+            "start_date": "",
+            "end_date": "",
+            "deployment_date": "",
+            "description": "",
+            "sub_projects": []
+        },
+        {
+            "id": 3,
+            "name": "1403: DDS to DDL Remediation",
+            "status": "active",
+            "health": "green",
+            "start_date": "",
+            "end_date": "",
+            "deployment_date": "",
+            "description": "",
+            "sub_projects": []
+        },
+        {
+            "id": 4,
+            "name": ".Net Rewrite",
+            "status": "active",
+            "health": "green",
+            "start_date": "",
+            "end_date": "",
+            "deployment_date": "",
+            "description": "",
+            "sub_projects": []
+        },
+        {
+            "id": 5,
+            "name": "Dailys P2P and JDE Modernization",
+            "status": "active",
+            "health": "green",
+            "start_date": "",
+            "end_date": "",
+            "deployment_date": "",
+            "description": "",
+            "sub_projects": []
+        },
+        {
+            "id": 6,
+            "name": "Cognos Cubes",
+            "status": "active",
+            "health": "green",
+            "start_date": "",
+            "end_date": "",
+            "deployment_date": "",
+            "description": "",
+            "sub_projects": []
+        }
+    ],
+    "raid_logs": {
+        "1": {
+            "risks": [],
+            "assumptions": [],
+            "issues": [],
+            "dependencies": []
+        },
+        "2": {
+            "risks": [],
+            "assumptions": [],
+            "issues": [],
+            "dependencies": []
+        },
+        "3": {
+            "risks": [],
+            "assumptions": [],
+            "issues": [],
+            "dependencies": []
+        },
+        "4": {
+            "risks": [],
+            "assumptions": [],
+            "issues": [],
+            "dependencies": []
+        },
+        "5": {
+            "risks": [],
+            "assumptions": [],
+            "issues": [],
+            "dependencies": []
+        },
+        "6": {
+            "risks": [],
+            "assumptions": [],
+            "issues": [],
+            "dependencies": []
+        }
+    },
+    "time_entries": [
+        {
+            "resource": "David Blood",
+            "project": "1",
+            "hours": 160.0,
+            "date": "2026-03-01"
+        },
+        {
+            "resource": "Rebecca Sullivan",
+            "project": "1",
+            "hours": 160.0,
+            "date": "2026-03-01"
+        },
+        {
+            "resource": "Kevin Brown",
+            "project": "1",
+            "hours": 160.0,
+            "date": "2026-03-01"
+        },
+        {
+            "resource": "Amber O'Connor",
+            "project": "2",
+            "hours": 160.0,
+            "date": "2026-03-01"
+        },
+        {
+            "resource": "Joel Goering",
+            "project": "2",
+            "hours": 160.0,
+            "date": "2026-03-02"
+        },
+        {
+            "resource": "Rebecca Sullivan",
+            "project": "1",
+            "hours": 30.0,
+            "week": "2026-W12"
+        }
+    ],
+    "portfolio_description": "Welcome to the Modernization Program. Here you can find details on various projects, their RAID logs, time tracking, and overall progress."
+}
