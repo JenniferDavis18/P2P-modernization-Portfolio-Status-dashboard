@@ -57,4 +57,7 @@ The application reads and writes data to `data.json` which contains:
 - `/`: Main dashboard view
 - `/edit/<project_id>`: Edit a specific project
 - `/edit/<project_id>/sub/<sub_id>`: Edit a specific sub-project
-- `/api/projects`: JSON API for project data
+- `/api/projects`: JSON API for project dataecho "# P2P-modernization-Portfolio-Status-dashboard" >> README.md
+git remote add origin https://github.com/JenniferDavis18/p2p-dashboard.git
+
+
