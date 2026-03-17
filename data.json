@@ -53,6 +53,116 @@
                     "deployment_date": "2027-03-31",
                     "description": "Vendor onboarding and management platform",
                     "sub_projects": []
+                },
+                {
+                    "id": 5,
+                    "name": "ARS - Accounts Receivable",
+                    "status": "not-started",
+                    "health": "green",
+                    "start_date": "",
+                    "end_date": "",
+                    "deployment_date": "",
+                    "description": "",
+                    "sub_projects": []
+                },
+                {
+                    "id": 6,
+                    "name": "TFS - Triumph Fees and Payments",
+                    "status": "not-started",
+                    "health": "green",
+                    "start_date": "",
+                    "end_date": "",
+                    "deployment_date": "",
+                    "description": "",
+                    "sub_projects": []
+                },
+                {
+                    "id": 7,
+                    "name": "EXP - Sales Expense Management",
+                    "status": "not-started",
+                    "health": "green",
+                    "start_date": "",
+                    "end_date": "",
+                    "deployment_date": "",
+                    "description": "",
+                    "sub_projects": []
+                },
+                {
+                    "id": 8,
+                    "name": "OMM - Order Management",
+                    "status": "not-started",
+                    "health": "green",
+                    "start_date": "",
+                    "end_date": "",
+                    "deployment_date": "",
+                    "description": "",
+                    "sub_projects": []
+                },
+                {
+                    "id": 9,
+                    "name": "PRC - Pricing Management",
+                    "status": "not-started",
+                    "health": "green",
+                    "start_date": "",
+                    "end_date": "",
+                    "deployment_date": "",
+                    "description": "",
+                    "sub_projects": []
+                },
+                {
+                    "id": 10,
+                    "name": "SHP - Order Shipping",
+                    "status": "not-started",
+                    "health": "green",
+                    "start_date": "",
+                    "end_date": "",
+                    "deployment_date": "",
+                    "description": "",
+                    "sub_projects": []
+                },
+                {
+                    "id": 11,
+                    "name": "TMS - Transportation Management",
+                    "status": "not-started",
+                    "health": "green",
+                    "start_date": "",
+                    "end_date": "",
+                    "deployment_date": "",
+                    "description": "",
+                    "sub_projects": []
+                },
+                {
+                    "id": 12,
+                    "name": "HPS - Hog Production System",
+                    "status": "not-started",
+                    "health": "green",
+                    "start_date": "",
+                    "end_date": "",
+                    "deployment_date": "",
+                    "description": "",
+                    "sub_projects": []
+                },
+                {
+                    "id": 13,
+                    "name": "TRC - Product Trace To Farm",
+                    "status": "not-started",
+                    "health": "green",
+                    "start_date": "",
+                    "end_date": "",
+                    "deployment_date": "",
+                    "description": "",
+                    "sub_projects": []
+                },
+                {
+                    "id": 14,
+                    "name": "CRM - P2P Cross Module",
+                    "status": "not-started",
+                    "health": "green",
+                    "start_date": "",
+                    "end_date": "",
+                    "deployment_date": "",
+                    "description": "",
+                    "sub_projects": []
                 }
             ]
         },
