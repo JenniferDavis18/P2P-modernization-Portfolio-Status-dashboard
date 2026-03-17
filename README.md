@@ -61,3 +61,7 @@ The application reads and writes data to `data.json` which contains:
 git remote add origin https://github.com/JenniferDavis18/p2p-dashboard.git
 
 
+git remote add origin https://github.com/JenniferDavis18/P2P-modernization-Portfolio-Status-dashboard.git
+git branch -M main
+git push -u origin main
+git push -u origin mastergit push -u origin master
