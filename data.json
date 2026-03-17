@@ -8,7 +8,7 @@
             "start_date": "2026-02-01",
             "end_date": "2028-10-01",
             "deployment_date": "",
-            "description": "",
+            "description": "Portfolio Level of the IBMI to P2P Modernization Program",
             "sub_projects": [
                 {
                     "id": 1,
@@ -24,7 +24,7 @@
                 {
                     "id": 2,
                     "name": "INV - Order Invoicing Process",
-                    "status": "active",
+                    "status": "not-started",
                     "health": "green",
                     "start_date": "2026-09-01",
                     "end_date": "2027-02-28",

@@ -83,6 +83,35 @@ def edit_subproject(project_id, sub_id):
 
     return render_template('edit_subproject.html', project=project, sub_project=sub_project)
 
+@app.route('/delete/<int:project_id>', methods=['POST'])
+def delete_project(project_id):
+    data = load_data()
+    projects = data.get('projects', [])
+
+    # Remove the project
+    data['projects'] = [p for p in projects if p['id'] != project_id]
+
+    # Save changes
+    save_data(data)
+    return redirect(url_for('dashboard'))
+
+@app.route('/delete/<int:project_id>/sub/<int:sub_id>', methods=['POST'])
+def delete_subproject(project_id, sub_id):
+    data = load_data()
+    projects = data.get('projects', [])
+
+    # Find the project
+    project = next((p for p in projects if p['id'] == project_id), None)
+    if not project:
+        return "Project not found", 404
+
+    # Find and remove the sub-project
+    project['sub_projects'] = [sp for sp in project.get('sub_projects', []) if sp['id'] != sub_id]
+
+    # Save changes
+    save_data(data)
+    return redirect(url_for('dashboard'))
+
 @app.route('/api/projects')
 def get_projects():
     data = load_data()
