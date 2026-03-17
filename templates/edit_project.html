@@ -62,6 +62,8 @@
                             <div class="mb-3">
                                 <label for="status" class="form-label">Status</label>
                                 <select class="form-control" id="status" name="status">
+                                    <option value="not-started" {% if project.status=='not-started' %}selected{% endif %}>Not Started
+                                    </option>
                                     <option value="active" {% if project.status=='active' %}selected{% endif %}>Active
                                     </option>
                                     <option value="on-hold" {% if project.status=='on-hold' %}selected{% endif %}>On

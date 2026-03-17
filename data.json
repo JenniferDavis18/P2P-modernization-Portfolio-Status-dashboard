@@ -23,13 +23,13 @@
                 },
                 {
                     "id": 2,
-                    "name": "AP - Accounts Payable Module",
+                    "name": "INV - Order Invoicing Process",
                     "status": "active",
-                    "health": "yellow",
-                    "start_date": "2026-03-01",
+                    "health": "green",
+                    "start_date": "2026-09-01",
                     "end_date": "2027-02-28",
-                    "deployment_date": "2027-01-15",
-                    "description": "Accounts Payable processing module migration",
+                    "deployment_date": "2027-02-28",
+                    "description": "",
                     "sub_projects": []
                 },
                 {

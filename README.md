@@ -18,7 +18,7 @@ Each project and sub-project includes:
 - Name and description
 - Start and end dates
 - Requested deployment dates
-- Status (Active, On Hold, Completed, Cancelled)
+- Status (Not Started, Active, On Hold, Completed, Cancelled)
 - Health (Green - On Track, Yellow - At Risk, Red - Critical Issues)
 
 ## Installation
