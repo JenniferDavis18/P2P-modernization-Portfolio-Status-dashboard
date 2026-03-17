@@ -112,6 +112,79 @@ def delete_subproject(project_id, sub_id):
     save_data(data)
     return redirect(url_for('dashboard'))
 
+@app.route('/create_project', methods=['GET', 'POST'])
+def create_project():
+    if request.method == 'POST':
+        data = load_data()
+        projects = data.get('projects', [])
+
+        # Generate new project ID (max existing ID + 1)
+        existing_ids = [p['id'] for p in projects] if projects else []
+        new_id = max(existing_ids) + 1 if existing_ids else 1
+
+        # Create new project
+        new_project = {
+            'id': new_id,
+            'name': request.form.get('name', ''),
+            'status': request.form.get('status', 'not-started'),
+            'health': request.form.get('health', 'green'),
+            'start_date': request.form.get('start_date', ''),
+            'end_date': request.form.get('end_date', ''),
+            'deployment_date': request.form.get('deployment_date', ''),
+            'description': request.form.get('description', ''),
+            'sub_projects': []
+        }
+
+        # Add to projects list
+        projects.append(new_project)
+        data['projects'] = projects
+
+        # Save changes
+        save_data(data)
+        return redirect(url_for('dashboard'))
+
+    return render_template('create_project.html')
+
+@app.route('/create_subproject/<int:project_id>', methods=['GET', 'POST'])
+def create_subproject(project_id):
+    data = load_data()
+    projects = data.get('projects', [])
+
+    # Find the project
+    project = next((p for p in projects if p['id'] == project_id), None)
+    if not project:
+        return "Project not found", 404
+
+    if request.method == 'POST':
+        sub_projects = project.get('sub_projects', [])
+
+        # Generate new sub-project ID (max existing ID + 1)
+        existing_ids = [sp['id'] for sp in sub_projects] if sub_projects else []
+        new_id = max(existing_ids) + 1 if existing_ids else 1
+
+        # Create new sub-project
+        new_subproject = {
+            'id': new_id,
+            'name': request.form.get('name', ''),
+            'status': request.form.get('status', 'not-started'),
+            'health': request.form.get('health', 'green'),
+            'start_date': request.form.get('start_date', ''),
+            'end_date': request.form.get('end_date', ''),
+            'deployment_date': request.form.get('deployment_date', ''),
+            'description': request.form.get('description', ''),
+            'sub_projects': []
+        }
+
+        # Add to sub-projects list
+        sub_projects.append(new_subproject)
+        project['sub_projects'] = sub_projects
+
+        # Save changes
+        save_data(data)
+        return redirect(url_for('dashboard'))
+
+    return render_template('create_subproject.html', project=project)
+
 @app.route('/api/projects')
 def get_projects():
     data = load_data()

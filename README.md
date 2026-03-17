@@ -7,7 +7,8 @@ A Flask-based web dashboard for displaying and editing portfolio, projects, and 
 - **View Dashboard**: Displays portfolio name and description, projects, and sub-projects
 - **Status & Health Overview**: Dedicated section showing project status counts and health indicators
 - **Project Summary Table**: Quick overview of all projects with key details
-- **Edit Projects**: Click "Edit Project" to modify project details including descriptions, dates, status, and health
+- **Create Projects**: Click "Create New Project" to add new projects to the portfolio
+- **Create Sub-Projects**: Click "Create New Sub-Project" under any project to add sub-projects
 - **Edit Sub-Projects**: Click "Edit" on sub-projects to modify their details
 - **Delete Projects**: Click "Delete Project" to remove entire projects and their sub-projects
 - **Delete Sub-Projects**: Click "Delete" on sub-projects to remove individual sub-projects

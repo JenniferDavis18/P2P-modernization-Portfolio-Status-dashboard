@@ -33,28 +33,6 @@
                     "sub_projects": []
                 },
                 {
-                    "id": 3,
-                    "name": "PO - Purchase Order Module",
-                    "status": "active",
-                    "health": "green",
-                    "start_date": "2026-04-01",
-                    "end_date": "2027-03-31",
-                    "deployment_date": "2027-02-28",
-                    "description": "Purchase Order management system",
-                    "sub_projects": []
-                },
-                {
-                    "id": 4,
-                    "name": "Vendor Management System",
-                    "status": "on-hold",
-                    "health": "yellow",
-                    "start_date": "2026-05-01",
-                    "end_date": "2027-04-30",
-                    "deployment_date": "2027-03-31",
-                    "description": "Vendor onboarding and management platform",
-                    "sub_projects": []
-                },
-                {
                     "id": 5,
                     "name": "ARS - Accounts Receivable",
                     "status": "not-started",
